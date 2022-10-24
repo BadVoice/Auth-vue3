@@ -2,13 +2,14 @@
     <div class="navbar  w-full h-[100px] bg-gray-200">
         <div class="container mx-auto px-4 h-full w-full 
         flex justify-end items-center">
-            <Form> </Form>
+           <FormLinks />
         </div>
     </div>
 </template>
 
 <script setup>
-import Form from './Form.vue';
+import FormLinks from '@/components/Login/FormLinks.vue';
+
 
 </script>
 
