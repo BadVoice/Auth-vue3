@@ -1,29 +1,34 @@
 <template>
   
       <form action="" class="flex-col flex gap-5">
-        <input placeholder="username" />
-        <input placeholder="password"  type="passowrd" /> 
-        <button @click.prevent="post" type="submit" class="w-[50px] bg-gray-200">login</button>
+        <input v-model="userData.username" placeholder="username" />
+        <input v-model="userData.password"  placeholder="password"  type="passowrd" /> 
+        <button @click.prevent="get()" type="submit" class="w-[50px] bg-gray-200">login</button>
         <RouterLink to="/signup">Signup</RouterLink>
+        <p>Password more than 6 characters ?  {{store.validateLengthPassword}}</p>
       </form>
  
+     
+      
 </template>
 
 <script setup>
 import { reactive } from "@vue/reactivity";
-import { useCounterStore } from '@/stores/state'
+import { useStore } from '@/stores/state'
 import { storeToRefs } from 'pinia'
 
-const store = useCounterStore()
+  
+const store = useStore()
 
-const { name, doubleCount } = storeToRefs(store)
+const { userData, validateLengthPassword } = storeToRefs(store)
     // the increment action can just be extracted
-const { increment } = store
+// const { increment } = store
 
-
-const post = () => {
-  console.log(name.value)
+const get = () => {
+  console.log(userData.value)
 }
+
+console.log(validateLengthPassword)
   //  const globalState = reactive({
   //   user: null
   // })
